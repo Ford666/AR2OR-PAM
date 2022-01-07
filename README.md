@@ -11,10 +11,6 @@ Optical-resolution photoacoustic microscopy (OR-PAM) enjoys superior spatial res
 ## WGAN-GP model used for PAM imaging transformation
 ![](https://github.com/Ford666/AR2OR-PAM/blob/main/images/3.png)
 
-## The architecture of the WGAN model used for PAM imaging transformation
-![](https://github.com/Ford666/AR2OR-PAM/blob/main/images/3.png)
-
-
 ## Deblurring performance on *in vivo* mouse ear vascular image
 ![](https://github.com/Ford666/AR2OR-PAM/blob/main/images/5.png)
 
