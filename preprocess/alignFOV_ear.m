@@ -1,7 +1,6 @@
-% 对不同离焦距离鼠脑PAM图像做配准
+
 clear
 
-addpath("../utils");
 
 %load AR-OR image pairs
 groups =  ["2nd","3rd","5th","7th","8th","9th","10th","ear_1","ear_2","ear_3","ear_4"];
