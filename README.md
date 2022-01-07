@@ -1,5 +1,5 @@
 # AR2OR-PAM
-This repository stores codes for my published paper "[High-resolution photoacoustic microscopy with deep penetration through learning](https://www.sciencedirect.com/science/article/pii/S2213597921000732)"
+This repository stores codes for our published paper "[High-resolution photoacoustic microscopy with deep penetration through learning](https://www.sciencedirect.com/science/article/pii/S2213597921000732)"
 
 
 ## Abstract
