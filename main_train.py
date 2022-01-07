@@ -1,15 +1,8 @@
 from utils.args import MAP_parse_args
 from utils.utilfunc import *
-from utils.dataloader import get_MAPdataloader1, get_TestMAPdataloader1
+from utils.dataloader import get_MAPdataloader, get_TestMAPdataloader
 from TrainWGAN_GP import TrainWGAN_GP
-# from TrainUnet import TrainUnet
 
-
-# #Set and fix the random seed for reproducibility
-# seed = random.randint(0,2**32-1)
-# seed_torch(seed)
-# torch.backends.cudnn.enabled = True
-# torch.backends.cudnn.benchmark = True
 
 if __name__ == "__main__":
 
@@ -21,7 +14,7 @@ if __name__ == "__main__":
     loss_types = ['L1-SSIM', 'L1-FL1', 'L1-TV', 'L1-PCC', 'L1', 'L2']
 
     # Load train set
-    train_loader = get_MAPdataloader1(
+    train_loader = get_MAPdataloader(
         opt, (int(384*opt.scale), int(384*opt.scale)))
 
     # Load test set
@@ -31,7 +24,7 @@ if __name__ == "__main__":
         # The test image patches
         test_x_path, test_y_path = "%s/ear/%s/x" % (
             opt.test_dir, i), "%s/ear/%s/y" % (opt.test_dir, i)
-        test_loaders.append(get_TestMAPdataloader1(
+        test_loaders.append(get_TestMAPdataloader(
             test_x_path, test_y_path, (int(384*opt.scale), int(384*opt.scale))))
 
     newH, newW = int(2000*opt.scale), int(2000*opt.scale)
@@ -44,9 +37,4 @@ if __name__ == "__main__":
     model = TrainWGAN_GP(opt, Unets[0], loss_types[0],
                          train_loader, test_loaders, test_ear_groups,
                          newH, newW, patchHW, overlap)
-
-    # training Unet
-    # model = TrainUnet(opt, loss_types[0],
-    #                   train_loader, test_loaders, test_ear_groups,
-    #                   newH, newW, patchHW, overlap)
     model.train()
